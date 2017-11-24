@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Documentation</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.i{
+			background-color: black;
+			color: white;
+			padding: 2px;
+			margin: 2px;
+			font-style: italic;
+		}
+		hr{
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		.url{
+			font-size: small;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var url = "http://ec2-52-15-220-16.us-east-2.compute.amazonaws.com:8080/";
+		$(function(){
+			$(".url").text(url);
+		});
+	</script>
+</head>
+<body>
+	<h1>Documentation MyTwitter</h1>
+	<small>V 1.0</small>
+
+	<hr>
+
+	<H2>Actions générales</H2>
+
+	<hr>
+	<H3>Login</H3>
+	<p>
+		Connection d'un utilisateur, retourne les données de l'utilisateur.<br>
+		Renvoi une exception en cas d'erreur
+	</p>
+	<span class="url"></span>?action=<span class="i">login</span>&
+	pseudo=<span class="i">pseudo</span>&
+	password=<span class="i">password</span>
+
+	<hr>
+	<H3>Is Logged</H3>
+	<p>
+		retourne false si l'utilisateur n'est pas connecté, autrement retourne les données de l'utilisateur connecté.
+	</p>
+	<span class="url"></span>?action=<span class="i">isLogged</span>
+
+	<hr>
+	<H3>Inscription</H3>
+	<p>
+		Inscription d'un utilisateur puis le connecte automatiquement, retourne les données de l'utilisateur.<br>
+		Renvoi une exception en cas d'erreur
+	</p>
+	<span class="url"></span>?action=<span class="i">inscription</span>&
+	pseudo=<span class="i">pseudo</span>&
+	password=<span class="i">password</span>&
+	prenom=<span class="i">prenom</span>&
+	email=<span class="i">email</span>
+
+	<hr>
+	<H3>getUser</H3>
+	<span class="url"></span>?action=<span class="i">getUser</span>&
+	id=<span class="i">id</span>
+	<hr>
+
+	<h2>Actions connectées</h2>
+
+	<hr>
+	<H3>Logout</H3>
+	<p>
+		Déconnecte l'utilisateur
+	</p>
+	<span class="url"></span>?action=<span class="i">logout</span>
+
+	<hr>
+	<H3>Envoyer un Tweet</H3>
+	<p>
+		Envoie un tweet et renvoi le tweet envoyé.<br>
+		responseTo (facultatif) : Id du tweet sur lequel répondre
+	</p>
+	<span class="url"></span>?action=<span class="i">envoyerTweet</span>&
+	text=<span class="i">text</span>&
+	responseTo=<span class="i">responseTo</span>
+
+	<hr>
+	<H3>Lister les Tweets</H3>
+	<p>
+		Liste les derniers tweets (ignore les réponses par défaut)<br>
+		last (facultatif) : le dernier tweet que vous avez chargé -> permet de charger plus quand vous arrivez en bas de la page<br>
+		num : le nombre de tweet à charger<br>
+		responseTo (facultatif) : permet de spécifier un tweet à récupérer les réponses.
+	</p>
+	<span class="url"></span>?action=<span class="i">listTweet</span>&
+	last=<span class="i">last</span>&
+	num=<span class="i">num</span>&
+	responseTo=<span class="i">responseTo</span>
+	<hr>
+
+</body>
+</html>
